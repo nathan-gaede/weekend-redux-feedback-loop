@@ -13,7 +13,7 @@ const AddComment = () => {
         <>
             <h3>How are you feeling?</h3>
             <input value={comment} onChange={handleComment} className="input" type="text"/>
-            <button onClick={handleComment}>Submit</button>
+            <button onClick={() =>history.push('/understanding')}>Submit</button>
         
         </>
     );

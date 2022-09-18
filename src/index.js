@@ -14,12 +14,20 @@ const comment = (state = '', action) => {
     }
     return state;
 }
+const understanding = (state = '', action) => {
+    if (action.type === 'ADD_UNDERSTANDING') {
+        return action.payload;
+    }
+    return state;
+}
+
 
 //Keep track of reducers here!
 const storeInstance = createStore(
     combineReducers(
         {
             comment,
+            understanding
 
         }
     ),
