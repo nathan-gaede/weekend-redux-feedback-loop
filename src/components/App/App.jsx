@@ -3,6 +3,7 @@ import axios from 'axios';
 import './App.css';
 import AddComment from '../Comments/Comments';
 import AddUnderstanding from '../Understanding/Understanding';
+import AddSupport from '../Support/Support';
 import { HashRouter as Router, Route, Link } from 'react-router-dom';
 
 function App() {
@@ -23,6 +24,10 @@ function App() {
 
       <Route exact path="/understanding">
         <AddUnderstanding />
+      </Route>
+
+      <Route exact path="/support">
+        <AddSupport />
       </Route>
       
 

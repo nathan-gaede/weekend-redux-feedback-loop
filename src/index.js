@@ -20,6 +20,12 @@ const understanding = (state = '', action) => {
     }
     return state;
 }
+const support = (state = '', action) => {
+    if (action.type === 'ADD_SUPPORT') {
+        return action.payload;
+    }
+    return state;
+}
 
 
 //Keep track of reducers here!
@@ -27,7 +33,8 @@ const storeInstance = createStore(
     combineReducers(
         {
             comment,
-            understanding
+            understanding,
+            support
 
         }
     ),
