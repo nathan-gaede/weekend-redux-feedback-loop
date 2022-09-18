@@ -8,8 +8,8 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import logger from 'redux-logger';
 
-const comment = (state = '', action) => {
-    if (action.type === 'ADD_COMMENT') {
+const feeling = (state = '', action) => {
+    if (action.type === 'ADD_FEELING') {
         return action.payload;
     }
     return state;
@@ -26,15 +26,24 @@ const support = (state = '', action) => {
     }
     return state;
 }
+const comment = (state = '', action) => {
+    if (action.type === 'ADD_COMMENT') {
+        return action.payload;
+    }
+    return state;
+}
+
+
 
 
 //Keep track of reducers here!
 const storeInstance = createStore(
     combineReducers(
         {
-            comment,
+            feeling,
             understanding,
-            support
+            support,
+            comment
 
         }
     ),

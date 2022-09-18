@@ -11,9 +11,12 @@ const AddSupport = () => {
     }
     return (
         <>
-            <h3>Do you feel supported?</h3>
-            <input value={support} onChange={handleSupport} className="input" type="text"/>
-            <button onClick={() => history.push('/summary')}>Submit</button>
+            <h3>Do you feel supported?
+                <br/>
+                5 = Most supported, 1 = least supported
+            </h3>
+            <input value={support} onChange={handleSupport} placeholder="*type number 1-5*"className="input" type="text"/>
+            <button onClick={() => history.push('/comment')}>Next</button>
         
         </>
     );

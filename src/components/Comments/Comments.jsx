@@ -11,9 +11,13 @@ const AddComment = () => {
     }
     return (
         <>
-            <h3>How are you feeling?</h3>
+            <h3>Do you have any feedback comments?
+                <br/>
+                
+            </h3>
+
             <input value={comment} onChange={handleComment} className="input" type="text"/>
-            <button onClick={() =>history.push('/understanding')}>Submit</button>
+            <button onClick={() =>history.push('/summary')}>Next</button>
         
         </>
     );

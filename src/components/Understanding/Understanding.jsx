@@ -11,9 +11,12 @@ const AddUnderstanding = () => {
     }
     return (
         <>
-            <h3>Do you understand the material?</h3>
+            <h3>Do you understand the material?
+                <br/>
+                5 = Full understanding, 1 = Help, I'm lost.
+            </h3>
             <input value={understanding} onChange={handleUnderstanding} className="input" type="text"/>
-            <button onClick={() => history.push('/support')}>Submit</button>
+            <button onClick={() => history.push('/support')}>Next</button>
         
         </>
     );
