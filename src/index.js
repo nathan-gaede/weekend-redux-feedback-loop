@@ -23,7 +23,7 @@ const understanding = (state = '', action) => {
 const support = (state = '', action) => {
     if (action.type === 'ADD_SUPPORT') {
         return action.payload;
-    }
+    } 
     return state;
 }
 const comment = (state = '', action) => {
