@@ -1,12 +1,21 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
+
+
 const AddFeeling = () => {
     const history = useHistory();
-    const feeling = useSelector(store => store.feeling);
+    const feeling = useSelector(store => store.feeling)
     const dispatch = useDispatch();
     const handleFeeling = (event) => {
         event.preventDefault();
+        let feelingInput = document.getElementById("feelingInput");
+        // console.log(feelingInput);
+        if (feelingInput.maxLength === 1) {
+            console.log('on the right track');
+        }
+        
+        
         // const blank = {
         //     if ({feeling} === '')alert('Please enter response to continue')
         //     else if(feeling !== '') {
@@ -26,8 +35,8 @@ const AddFeeling = () => {
             </h3>
             {/* TODO add a handleNext button to prevent page navigation
             progress if input field is blank. */}
-            <input maxLength={1} value={feeling}  onChange={handleFeeling}className="input" type="text" required/>
-            <button onClick={(event) => { {if(feeling === '')alert('Please enter response to continue')} handleFeeling, history.push('/understanding');} }>Next</button>
+            <input id="feelingInput" maxLength={1} onChange={handleFeeling} className="input" type="text" required/>
+            <button id="next-feeling"  disabled={!feeling} onClick={() => {handleFeeling, history.push('/understanding');} }>Next</button>
         
         </>
     );
