@@ -9,23 +9,24 @@ const AddFeeling = () => {
     const dispatch = useDispatch();
     const handleFeeling = (event) => {
         event.preventDefault();
-        let feelingInput = document.getElementById("feelingInput");
         // console.log(feelingInput);
-        if (feelingInput.maxLength === 1) {
+        
+            dispatch({type: 'ADD_FEELING', payload: event.target.value});
+        
+            
+        
+    } 
+    
+     const nextPage = () => {
+        // console.log(feelingInput);
+        if (feeling > 0 && feeling < 6) {
             console.log('on the right track');
-        }
         
+            history.push('/understanding');
+        }else{alert('Please enter value between 1 and 5')}
+     }  
         
-        // const blank = {
-        //     if ({feeling} === '')alert('Please enter response to continue')
-        //     else if(feeling !== '') {
-        //         return true;
-        //     }
-        // }    
        
-        
-        dispatch({type: 'ADD_FEELING', payload: event.target.value});
-    }
     
     return (
         <>
@@ -36,7 +37,7 @@ const AddFeeling = () => {
             {/* TODO add a handleNext button to prevent page navigation
             progress if input field is blank. */}
             <input id="feelingInput" maxLength={1} onChange={handleFeeling} className="input" type="text" required/>
-            <button id="next-feeling"  disabled={!feeling} onClick={() => {handleFeeling, history.push('/understanding');} }>Next</button>
+            <button id="next-feeling"  disabled={!feeling} onClick={nextPage} >Next</button>
         
         </>
     );
