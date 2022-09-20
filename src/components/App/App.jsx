@@ -39,6 +39,10 @@ function App() {
       <Route exact path="/summary">
         <DisplaySummary />
       </Route>
+
+      <Route exact path="/submit">
+        
+      </Route>
       
 
       </Router>

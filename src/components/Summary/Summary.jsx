@@ -1,23 +1,46 @@
-import {useSelector} from 'react-redux';
+import {useSelector, useDispatch} from 'react-redux';
 import { useHistory } from "react-router-dom";
+import axios from 'axios';
+
 
 const DisplaySummary = () => {
 
     const history= useHistory();
-    const displayFeeling = useSelector(store => store.feeling)
-    const displayUnderstanding = useSelector(store => store.understanding)
-    const displaySupport = useSelector(store => store.support)
-    const displayComment = useSelector(store => store.comment)
+    const dispatch= useDispatch();
+    const feeling = useSelector(store => store.feeling)
+    const understanding = useSelector(store => store.understanding)
+    const support = useSelector(store => store.support)
+    const comment = useSelector(store => store.comment)
+
+    const handleSubmit = () => {
+        axios({
+            method: 'POST',
+            url: '/summary',
+            data: {
+                feeling: feeling,
+                understanding: understanding,
+                support: support,
+                comment: comment
+            }
+
+        }).then((response) => {
+            dispatch({ type: 'CLEAR_ALL'});
+            history.push('/');
+        }).catch((error) => {
+            console.log(error);
+            alert('Something wrong in POST');
+        })
+    }
     
         return (
             <>
                 <h3>Summary</h3>
                     <div>
-                        <h2>{displayFeeling}</h2>
-                        <h2>{displayUnderstanding}</h2>
-                        <h2>{displaySupport}</h2>
-                        <h2>{displayComment}</h2>
-                            <button onClick={() => history.push('/summary')}
+                        <h2>{feeling}</h2>
+                        <h2>{understanding}</h2>
+                        <h2>{support}</h2>
+                        <h2>{comment}</h2>
+                            <button onClick= {handleSubmit}
                              className="button">Submit</button>
                     </div>
             </>
